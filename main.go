@@ -58,8 +58,8 @@ func main() {
 
 //Parse flags funciton
 func parseFlags() (path, format string) {
-	flags.StringVar(&path, "path", "", "the path to export file.")
-	flags.StringVar(&format, "format", "json", "the output format for the user information. Available options are 'csv' and 'json'. The default is json")
+	flag.StringVar(&path, "path", "", "the path to export file.")
+	flag.StringVar(&format, "format", "json", "the output format for the user information. Available options are 'csv' and 'json'. The default is json")
 	flag.Parse()
 
 	format = strings.ToLower(format)
@@ -69,6 +69,7 @@ func parseFlags() (path, format string) {
 		flag.Usage()
 		os.Exit(1)
 	}
+	return
 }
 
 //Function which handles errors
